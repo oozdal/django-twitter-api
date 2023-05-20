@@ -1,0 +1,11 @@
+name: django-twitter-api
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - django=4.2.1
+  - pip=22.3.1
+  - pip:
+    - tweepy==4.14.0
+
