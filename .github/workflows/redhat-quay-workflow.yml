@@ -1,6 +1,6 @@
 # Building and Pushing Container Images to GitHub Container Registry
 
-name: docker-ghcr-workflow
+name: redhat-quay-workflow
 
 on:
   push:
