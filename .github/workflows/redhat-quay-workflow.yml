@@ -1,4 +1,4 @@
-# Building and Pushing Container Images to ReadHat Quay
+# Building and Pushing Container Images to ReadHat Quay.io
 
 name: redhat-quay-workflow
 
@@ -58,7 +58,7 @@ jobs:
           fi
           ( IFS=$','; echo "${TAGS[*]}" )
           
-      - name: Docker Hub Login
+      - name: Docker quay.io Login
         env:
           DOCKER_USER: ${{secrets.REGISTRY_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.REGISTRY_PASSWORD}}
@@ -74,12 +74,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          #registry: ${{ secrets.REGISTRY_SERVER }}
-          #repository: ${{ secrets.REGISTRY_NAMESPACE }}/${{ env.IMAGE_NAME }}
-          #username: ${{ secrets.REGISTRY_USERNAME }}
-          #password: ${{ secrets.REGISTRY_PASSWORD }}          
-          #tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
-          #tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.date }}
           tags: quay.io/ozerozdal/${{ env.IMAGE_NAME }}:${{ steps.image_tags.outputs.IMAGE_TAGS }}
           cache-from: type=gha
           cache-to: type=gha, mode=max
