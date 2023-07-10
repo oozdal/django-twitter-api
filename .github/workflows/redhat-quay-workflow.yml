@@ -73,7 +73,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}          
           #tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.tag }}
           #tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.date }}
-          tags: "${{ steps.image_tags.outputs.IMAGE_TAGS }}"
+          tags: quay.io/ozerozdal/${{ env.IMAGE_NAME }}:${{ steps.image_tags.outputs.IMAGE_TAGS }}
           cache-from: type=gha
           cache-to: type=gha, mode=max
           
